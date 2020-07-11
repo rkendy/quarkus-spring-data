@@ -17,8 +17,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import io.vertx.core.cli.Option;
-
 @Path("produtos")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -48,28 +46,27 @@ public class ProdutoResource {
     @POST
     public void salvaProduto(ProdutoDTO produtoDto) {
         Produto produto = new Produto();
-        produto.nome = produtoDto.nome;
-        produto.valor = produtoDto.valor;
+        produto.setNome(produtoDto.nome);
+        produto.setValor(produtoDto.valor);
         produtoRepository.save(produto);
     }
 
-    // @PUT
-    // @Path("{id}")
-    // @Transactional
-    // public Produto atualizarProduto(@PathParam("id") Long id, ProdutoDTO
-    // produtoDto) {
-    // Optional<Produto> produtoOp = produtoRepository.findById(id);
-    // if (produtoOp.isPresent()) {
-    // Produto produto = produtoOp.get();
-    // produto.nome = produtoDto.nome;
-    // produto.valor = produtoDto.valor;
-    // Produto x = produtoRepository.save(produto);
-    // return x;
+    @PUT
+    @Path("{id}")
+    @Transactional
+    public Produto atualizarProduto(@PathParam("id") Long id, ProdutoDTO produtoDto) {
+        Optional<Produto> produtoOp = produtoRepository.findById(id);
+        if (produtoOp.isPresent()) {
+            Produto produto = produtoOp.get();
+            produto.setNome(produtoDto.nome);
+            produto.setValor(produtoDto.valor);
+            Produto x = produtoRepository.save(produto);
+            return x;
 
-    // } else {
-    // throw new NotFoundException();
-    // }
-    // }
+        } else {
+            throw new NotFoundException();
+        }
+    }
 
     @DELETE
     @Path("{id}")

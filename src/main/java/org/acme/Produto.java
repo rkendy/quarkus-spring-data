@@ -16,15 +16,55 @@ public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
-    public String nome;
-    public BigDecimal valor;
+    private String nome;
+    private BigDecimal valor;
 
     @CreationTimestamp
-    public Date criacao;
+    private Date criacao;
 
     @UpdateTimestamp
-    public Date atualizacao;
+    private Date atualizacao;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    public Date getCriacao() {
+        return criacao;
+    }
+
+    public void setCriacao(Date criacao) {
+        this.criacao = criacao;
+    }
+
+    public Date getAtualizacao() {
+        return atualizacao;
+    }
+
+    public void setAtualizacao(Date atualizacao) {
+        this.atualizacao = atualizacao;
+    }
 
 }
