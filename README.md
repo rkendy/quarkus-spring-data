@@ -11,7 +11,7 @@ RestEasy JSON-B, SmallRye OpenAPI, JDBC Driver H2, Quarkus Extension for Spring 
 ## Add extension
 
 mvn quarkus:list-extensions
-mvn quarkus:add-extension -Dextensions="quarkus-jdbc-mysql"
+mvn quarkus:add-extension -Dextensions="quarkus-jdbc-mysql,quarkus-smallrye-health"
 
 ## Docker: mysql
 
