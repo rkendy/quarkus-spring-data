@@ -8,6 +8,17 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 RestEasy JSON-B, SmallRye OpenAPI, JDBC Driver H2, Quarkus Extension for Spring Data JPA API
 
+## Add extension
+
+mvn quarkus:list-extensions
+mvn quarkus:add-extension -Dextensions="quarkus-jdbc-mysql"
+
+## Docker: mysql
+
+docker pull mysql
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
+docker exec -it mysql bash
+
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
