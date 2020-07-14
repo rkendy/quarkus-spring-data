@@ -1,0 +1,4 @@
+PRODUTO:
+  - id: 1
+    nome: Produto X
+    valor: 12.34

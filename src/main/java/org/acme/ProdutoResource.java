@@ -23,7 +23,7 @@ import javax.ws.rs.core.MediaType;
 public class ProdutoResource {
 
     @Inject
-    private ProdutoRepository produtoRepository;
+    ProdutoRepository produtoRepository;
 
     @GET
     public List<Produto> getAll() {

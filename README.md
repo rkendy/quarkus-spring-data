@@ -18,6 +18,14 @@ mvn quarkus:add-extension -Dextensions="quarkus-jdbc-mysql,quarkus-smallrye-heal
 docker pull mysql
 docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
 docker exec -it mysql bash
+docker start mysql
+docker stop mysql
+
+## Integration Test with Docker
+
+Testcontainers
+Database Rider
+\$ mvn verify -Pfailsafe
 
 ## Running the application in dev mode
 
